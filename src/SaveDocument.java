@@ -8,6 +8,7 @@ import word.w2004.Document2004;
 import word.w2004.Document2004.Encoding;
 import word.w2004.elements.BreakLine;
 import word.w2004.elements.Heading1;
+import word.w2004.elements.Heading2;
 import word.w2004.elements.Heading3;
 import word.w2004.elements.Image;
 import word.w2004.elements.Paragraph;
@@ -30,7 +31,8 @@ public class SaveDocument {
 		// Add Project name to document header
 	//myDoc.getHeader().addEle(Heading3.with(" Image&WorkFlow").withStyle().align(Align.RIGHT).create());
 		// Specify Test case name as document heading
-		myDoc.addEle(Heading1.with(testCaseName + " Test Case").withStyle().align(Align.CENTER).create());
+		myDoc.addEle(Heading1.with("Image And WorkFlow").withStyle().align(Align.CENTER).bold().create());
+		myDoc.addEle(Heading2.with(testCaseName).withStyle().align(Align.LEFT).create());
 		myDoc.addEle(BreakLine.times(1).create());
 		// Add a description paragraph
 		myDoc.addEle(Paragraph.with("Following are the related screenshots").create());

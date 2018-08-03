@@ -14,7 +14,7 @@ public class WordDocWithScreenshotTest {
 	// Declaring variables
 	private WebDriver driver;
 	private String baseUrl;
-	private String testCaseName = "WordDocWithScreenshot";
+	
 
 	@BeforeMethod
 	public void setUp() throws Exception {
@@ -32,6 +32,7 @@ public class WordDocWithScreenshotTest {
 
 	@Test
 	public void testPageTitle(Method m) throws Exception {
+		String testCaseName=m.getName();
 		// Open baseUrl in Firefox browser window
 		driver.get(baseUrl);
 		SaveScreenshot.capture(m.getName() + "0", driver);
@@ -52,7 +53,7 @@ public class WordDocWithScreenshotTest {
 		// Take a screenshot
 		SaveScreenshot.capture(m.getName() + "2", driver);
 		// Create a word document and include all screenshots
-		SaveDocument.createDoc(m.getName(), new String[] {m.getName() + "0", m.getName() + "1", m.getName() + "2" });
+		SaveDocument.createDoc("TestCase_"+m.getName(), new String[] {m.getName() + "0", m.getName() + "1", m.getName() + "2" });
 	}
 
 	@AfterMethod
